@@ -5,4 +5,5 @@ from sqlalchemy.orm import sessionmaker
 engine=create_engine("postgresql://postgres:system@localhost/item_db", echo=True)
 
 Base=declarative_base()
-sessionLocal=sessionmaker(bind=engine)
+
+SessionLocal=sessionmaker(bind=engine)

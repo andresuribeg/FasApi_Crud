@@ -10,4 +10,4 @@ class Item(Base):
     en_oferta=Column(Boolean, default=False)
 
     def __repr__(self):
-        return f"<Item name={self.nombre} price={self.precio}>"
+        return f"<Item nombre={self.nombre} precio={self.precio}>"
