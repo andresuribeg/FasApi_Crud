@@ -1,33 +1,38 @@
 from fastapi import FastAPI
 from pydantic import BaseModel 
 from typing import Optional
+from database import sessionLocal
 
 app=FastAPI()
 
-
 class Item(BaseModel):
     id:int
-    name:str
-    description:str
-    price:int
-    on_offer:bool
+    nombre:str
+    descripcion:str
+    precio:int
+    en_oferta:bool
 
-@app.get('/')
-def index():
-    return{"message":"Prueba de conexión"}
+    class Config:
+        orm_mode=True
 
-@app.get('/greet/{name}')
-def greet_name(name:str):
-    return{"greeting":f"Hello {name}"}
+db=sessionLocal()
 
-@app.get('/greet')
-def greet_optional_name(name:Optional[str]="user"):
-    return {"message":f"Hello {name}"}
+@app.get('/items')
+def get_all_items():
+    pass
+
+@app.get('/item/{item_id}')
+def get_an_item(item_id:int):
+    pass
+
+@app.post('/items')
+def create_an_item():
+    pass
 
 @app.put('/item/{item_id}')
-def update_item(item_id:int, item:Item):
-    return {'name':item.name, ''
-            'description':item.description,
-            'price':item.price,
-            'on_offer':item.on_offer
-            }
+def update_an_item(item_id:int):
+    pass
+
+@app.delete ('/item/{item_id}')
+def delete_item(item_id:int):
+    pass
