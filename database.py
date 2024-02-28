@@ -2,7 +2,7 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine=create_engine("postgresql://postgres:system@localhost/item_db", echo=True)
+engine=create_engine("postgresql://postgres:clave@localhost/item_db", echo=True)
 
 Base=declarative_base()
 
